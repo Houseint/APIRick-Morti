@@ -20,8 +20,8 @@ export default function TelaPersonagem({ navigation }) {
 
     if (carregando) {
       return (
-        <View style={styles.loader}>
-          <ActivityIndicator size="large" color="#ff0015ff" />
+        <View style={styles.center}>
+          <ActivityIndicator size="large" color="red" />
         </View>
       );
     }
@@ -33,12 +33,12 @@ export default function TelaPersonagem({ navigation }) {
         renderItem={({ item }) => (
           <TouchableOpacity 
             style={styles.card}
-            onPress={() => navigation.navigate('Detalhes', { personagem: item })}
+            onPress={() => navigation.navigate('Detalhes', { character: item })}
             >
             <Image source={{ uri: item.image }} style={styles.image} />
-            <View style={styles.info}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text>{item.status} - {item.species}</Text>
+              <View style={styles.info}>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text>{item.status} - {item.species}</Text>
             </View>
           </TouchableOpacity>
         )}
