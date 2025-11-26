@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, ActivityIndicator, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
+import {useFonts} from 'expo-font';
 
 export default function TelaPersonagem({ navigation }) {
   const [personagem, setPersonagem] = useState([]);
   const [carregando, setCarregando] = useState(true);
+  const [fontsLoaded] = useFonts({
+    'GetSchwifty': require('../../assets/fonts/Ricky-and-Morty-font.ttf'),
+  });
 
   useEffect(() => {
     axios.get('https://rickandmortyapi.com/api/character')
@@ -38,7 +42,7 @@ export default function TelaPersonagem({ navigation }) {
             <Image source={{ uri: item.image }} style={styles.image} />
               <View style={styles.info}>
               <Text style={styles.name}>{item.name}</Text>
-              <Text>{item.status} - {item.species}</Text>
+              <Text style={styles.coisinhas}>{item.status} - {item.species}</Text>
             </View>
           </TouchableOpacity>
         )}
@@ -46,9 +50,10 @@ export default function TelaPersonagem({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  card: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, borderColor: '#ccc' },
+    center: { flex: 1, justifyContent: 'center', alignItems: 'center', border: 10 },
+  card: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, borderColor: 'green', backgroundColor: '#9370DB', gap: 10 },
   image: { width: 80, height: 80, borderRadius: 40 },
-  info: { marginLeft: 10, justifyContent: 'center' },
-  name: { fontSize: 16, fontWeight: 'bold' },
+  info: { marginLeft: 10, justifyContent: 'center', backgroundColor: '#9370DB', color: '#4169E1' },
+  name: { fontSize: 16, fontWeight: 'bold', color: 'green', fontFamily:'GetSchwifty' },
+  coisinhas: {color : '#FFD700'}
 });
