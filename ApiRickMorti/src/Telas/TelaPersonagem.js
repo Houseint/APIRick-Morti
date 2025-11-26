@@ -51,9 +51,9 @@ export default function TelaPersonagem({ navigation }) {
 
 const styles = StyleSheet.create({
     center: { flex: 1, justifyContent: 'center', alignItems: 'center', border: 10 },
-  card: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, borderColor: 'green', backgroundColor: '#9370DB', gap: 10 },
+  card: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, borderColor: 'green', backgroundColor: '#043c6e', gap: 10 },
   image: { width: 80, height: 80, borderRadius: 40 },
-  info: { marginLeft: 10, justifyContent: 'center', backgroundColor: '#9370DB', color: '#4169E1' },
+  info: { marginLeft: 10, justifyContent: 'center', backgroundColor: '#043c6e', color: '#043c6e' },
   name: { fontSize: 16, fontWeight: 'bold', color: 'green', fontFamily:'GetSchwifty' },
   coisinhas: {color : '#FFD700'}
 });
